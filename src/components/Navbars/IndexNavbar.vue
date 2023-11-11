@@ -11,9 +11,9 @@
         <router-link to="/">
           <a
             class="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-            href="#pablo"
+            href="#thirsty"
           >
-            Vue Notus
+            Thirsty
           </a>
         </router-link>
         <button
@@ -29,62 +29,19 @@
         :class="[navbarOpen ? 'block' : 'hidden']"
         id="example-navbar-warning"
       >
-        <ul class="flex flex-col lg:flex-row list-none mr-auto">
-          <li class="flex items-center">
-            <a
-              class="hover:text-blueGray-500 text-blueGray-700 px-3 py-2 flex items-center text-xs uppercase font-bold"
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus?ref=vn-index-navbar"
-            >
-              <i
-                class="text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2"
-              />
-              Docs
-            </a>
-          </li>
-        </ul>
         <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
           <li class="flex items-center">
-            <index-dropdown />
+            <router-link to="/auth/login">
+              Se connecter
+            </router-link>
           </li>
-          <li class="flex items-center">
-            <a
-              class="hover:text-blueGray-500 text-blueGray-700 px-3 py-2 flex items-center text-xs uppercase font-bold"
-              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fvue-notus%2F%23%2F"
-              target="_blank"
-            >
-              <i class="text-blueGray-400 fab fa-facebook text-lg leading-lg" />
-              <span class="lg:hidden inline-block ml-2">Share</span>
-            </a>
-          </li>
-
-          <li class="flex items-center">
-            <a
-              class="hover:text-blueGray-500 text-blueGray-700 px-3 py-2 flex items-center text-xs uppercase font-bold"
-              href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fvue-notus%2F%23%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20VueJS%20UI%20Kit%20and%20Admin.%20Let%20Vue%20Notus%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level.%20"
-              target="_blank"
-            >
-              <i class="text-blueGray-400 fab fa-twitter text-lg leading-lg" />
-              <span class="lg:hidden inline-block ml-2">Tweet</span>
-            </a>
-          </li>
-
-          <li class="flex items-center">
-            <a
-              class="hover:text-blueGray-500 text-blueGray-700 px-3 py-2 flex items-center text-xs uppercase font-bold"
-              href="https://github.com/creativetimofficial/vue-notus?ref=vn-index-navbar"
-              target="_blank"
-            >
-              <i class="text-blueGray-400 fab fa-github text-lg leading-lg" />
-              <span class="lg:hidden inline-block ml-2">Star</span>
-            </a>
-          </li>
-
           <li class="flex items-center">
             <button
               class="bg-emerald-500 text-white active:bg-emerald-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
               type="button"
+              @click="goRegister"
             >
-              <i class="fas fa-arrow-alt-circle-down"></i> Download
+              <i class="fas fa-user"></i> S'enregistrer
             </button>
           </li>
         </ul>
@@ -94,8 +51,6 @@
 </template>
 
 <script>
-import IndexDropdown from "@/components/Dropdowns/IndexDropdown.vue";
-
 export default {
   data() {
     return {
@@ -103,12 +58,13 @@ export default {
     };
   },
   methods: {
+    goRegister() {
+      this.$router.push('/auth/register');      
+    },
+
     setNavbarOpen: function () {
       this.navbarOpen = !this.navbarOpen;
     },
-  },
-  components: {
-    IndexDropdown,
   },
 };
 </script>

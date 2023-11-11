@@ -19,20 +19,15 @@
       <a
         href="javascript:void(0);"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        @click="goDrink"
       >
-        Action
+        Voir
       </a>
       <a
         href="javascript:void(0);"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
-        Another action
-      </a>
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Something else here
+        Supprimer
       </a>
     </div>
   </div>
@@ -41,12 +36,23 @@
 import { createPopper } from "@popperjs/core";
 
 export default {
+  props: {
+    item: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       dropdownPopoverShow: false,
     };
   },
   methods: {
+    goDrink() {
+      this.$router.push(`/drink/${this.item.api_drink_id}`);
+    },
+    deleteDrink() {
+    },
     toggleDropdown: function (event) {
       event.preventDefault();
       if (this.dropdownPopoverShow) {

@@ -1,9 +1,7 @@
 {
-  "name": "vue-notus",
-  "homepage": "https://demos.creative-tim.com/vue-notus/",
+  "name": "thirsty",
   "version": "1.1.0",
-  "description": "Vue Notus - A free Tailwind CSS and VueJS UI Kit and Admin by Creative Tim.",
-  "repository": "https://github.com/creativetimofficial/vue-notus",
+  "description": "Thirsty - propose large cocktails learning and bar list",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -17,12 +15,16 @@
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",
     "@vue/compiler-sfc": "3.0.7",
+    "axios": "^1.4.0",
     "chart.js": "2.9.4",
     "core-js": "3.9.1",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "lodash": "^4.17.21",
     "tailwindcss": "2.0.4",
     "vue": "3.0.7",
+    "vue-axios": "^3.5.2",
+    "vue-multiselect": "^3.0.0-beta.2",
     "vue-router": "4.0.5"
   },
   "devDependencies": {

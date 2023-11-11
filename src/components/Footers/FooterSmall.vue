@@ -14,12 +14,13 @@
           <div
             class="text-sm text-blueGray-500 font-semibold py-1 text-center md:text-left"
           >
-            Copyright © {{ date }}
+            © {{ date }}, fait par
             <a
-              href="https://www.creative-tim.com?ref=vn-footer-small"
+              href="https://cv.ludovicnouvel.fr"
+              target="_blank"
               class="text-white hover:text-blueGray-300 text-sm font-semibold py-1"
             >
-              Creative Tim
+              ludonvl
             </a>
           </div>
         </div>
@@ -27,34 +28,27 @@
           <ul class="flex flex-wrap list-none md:justify-end justify-center">
             <li>
               <a
-                href="https://www.creative-tim.com?ref=vn-footer-small"
                 class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
+                href="https://linkedin.com/ludovicnouvel"
+                target="_blank"
               >
-                Creative Tim
+                <i
+                  class="lg:text-blueGray-200 text-blueGray-400 fab fa-linkedin text-lg leading-lg"
+                />
+                <span class="lg:hidden inline-block ml-2">LinkedIn</span>
               </a>
             </li>
+
             <li>
               <a
-                href="https://www.creative-tim.com/presentation?ref=vn-footer-small"
                 class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
+                href="https://github.com/ludonvl"
+                target="_blank"
               >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="http://blog.creative-tim.com?ref=vn-footer-small"
-                class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/creativetimofficial/vue-notus/blob/main/LICENSE.md?ref=vn-footer-small"
-                class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
-              >
-                MIT License
+                <i
+                  class="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg"
+                />
+                <span class="lg:hidden inline-block ml-2">Star</span>
               </a>
             </li>
           </ul>

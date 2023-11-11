@@ -157,7 +157,6 @@ vue-notus
 │   │   ├── Maps
 │   │   │   └── MapExample.vue
 │   │   ├── Navbars
-│   │   │   ├── AdminNavbar.vue
 │   │   │   ├── AuthNavbar.vue
 │   │   │   └── IndexNavbar.vue
 │   │   └── Sidebar

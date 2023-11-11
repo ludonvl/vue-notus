@@ -1,56 +1,76 @@
 <template>
-  <div>
-    <a
-      class="text-blueGray-500 block"
-      href="#pablo"
-      ref="btnDropdownRef"
-      v-on:click="toggleDropdown($event)"
-    >
-      <div class="items-center flex">
-        <span
-          class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
+  <div class="w-full">
+    <div v-if="user" class="w-full">
+      <a
+        class="text-blueGray-500 block"
+        href="#pablo"
+        ref="btnDropdownRef"
+        v-on:click="toggleDropdown($event)"
+      >
+        <div class="items-center flex w-full">
+          <span
+            class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
+          >
+            <img
+              alt="..."
+              class="w-full rounded-full align-middle border-none shadow-lg"
+              :src="image"
+            />
+          </span>
+          <span class="ml-2 text-sm text-white font-bold truncate width-name">{{ user.name }}</span>
+        </div>
+      </a>
+      <div
+        ref="popoverDropdownRef"
+        class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+        v-bind:class="{
+          hidden: !dropdownPopoverShow,
+          block: dropdownPopoverShow,
+        }"
+      >
+        <router-link
+          class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          to="/profile"
         >
-          <img
-            alt="..."
-            class="w-full rounded-full align-middle border-none shadow-lg"
-            :src="image"
-          />
-        </span>
+          Profile
+        </router-link>
+        <router-link
+          class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          to="/drink/settings"
+        >
+          Paramètres
+        </router-link>
+        <router-link
+          class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          to="/drink/statistics"
+        >
+          Statistics
+        </router-link>
+        <router-link
+          class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          to="/drink/discover"
+        >
+          Aide
+        </router-link>
+        <div class="h-0 my-2 border border-solid border-blueGray-100" />
+        <a
+          href="javascript:void(0);"
+          class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+          @click="logout"
+        >
+          Se deconnecter
+        </a>
       </div>
-    </a>
-    <div
-      ref="popoverDropdownRef"
-      class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-      v-bind:class="{
-        hidden: !dropdownPopoverShow,
-        block: dropdownPopoverShow,
-      }"
-    >
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+    </div>
+    <div v-else class="flex justify-center w-full">
+      <button
+        class="bg-orange-200 text-black active:bg-emerald-600 px-4 py-2 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        type="button"
       >
-        Action
-      </a>
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Another action
-      </a>
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Something else here
-      </a>
-      <div class="h-0 my-2 border border-solid border-blueGray-100" />
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >
-        Seprated link
-      </a>
+            <router-link to="/auth/login">
+              Se connecter
+            </router-link>
+      </button>
     </div>
   </div>
 </template>
@@ -61,6 +81,12 @@ import { createPopper } from "@popperjs/core";
 import image from "@/assets/img/team-1-800x800.jpg";
 
 export default {
+  props: {
+    user: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       dropdownPopoverShow: false,
@@ -68,6 +94,14 @@ export default {
     };
   },
   methods: {
+    goLogin() {
+      this.$router.push('login');
+    },
+
+    logout() {
+      this.$router.push('/');
+    },
+
     toggleDropdown: function (event) {
       event.preventDefault();
       if (this.dropdownPopoverShow) {
@@ -75,10 +109,15 @@ export default {
       } else {
         this.dropdownPopoverShow = true;
         createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
-          placement: "bottom-start",
+          placement: "top",
         });
       }
     },
   },
 };
 </script>
+<style scoped>
+.width-name {
+  width: 150px;
+}
+</style>

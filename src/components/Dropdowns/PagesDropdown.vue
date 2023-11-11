@@ -22,25 +22,25 @@
         Admin Layout
       </span>
       <router-link
-        to="/admin/dashboard"
+        to="/drink/dashboard"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
         Dashboard
       </router-link>
       <router-link
-        to="/admin/settings"
+        to="/drink/settings"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
         Settings
       </router-link>
       <router-link
-        to="/admin/tables"
+        to="/drink/tables"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
         Tables
       </router-link>
       <router-link
-        to="/admin/maps"
+        to="/drink/maps"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
         Maps
